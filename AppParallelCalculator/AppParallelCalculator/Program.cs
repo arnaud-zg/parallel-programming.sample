@@ -16,8 +16,8 @@ namespace AppParallelCalculator
         static void Main(string[] args)
         {
             Program program = new Program();
-            program.runTaskClassic();
-            program.runTaskParallel();
+            // program.runTaskClassic();
+            // program.runTaskParallel();
             program.runTaskSynchronization();
             Console.ReadLine();
         }
@@ -45,8 +45,8 @@ namespace AppParallelCalculator
                         watch.ElapsedMilliseconds);
                 }, tokenSource.Token);
                 tasks.Add(t);
-                // if (i == 10)
-                //    this.cancelTask();
+                 if (i == 10)
+                    this.cancelTask();
             }
             Task.Factory.ContinueWhenAll(tasks.ToArray(),
                   result =>
@@ -88,7 +88,7 @@ namespace AppParallelCalculator
             Console.WriteLine("=== Total time {0} milliseconds ===", watch.ElapsedMilliseconds);
         }
 
-        //
+        // Sum of the nth root of all integers
         private double SumRootN(int root)
         {
             double result = 0;
